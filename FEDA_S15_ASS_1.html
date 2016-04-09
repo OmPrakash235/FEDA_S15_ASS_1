@@ -1,0 +1,34 @@
+<!-- Create custom directive using isolate scope. -->
+
+<html ng-app="myApp">
+	<head>
+		<title>AngularJS Custom Directives</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+		<script type="text/javascript">
+			var module = angular.module("myApp", []);
+			
+			module.controller("newCtrl", function($scope){
+				$scope.name = 'OM PRAKASH';
+			});
+			
+			module.directive('myDir', function(){
+				return {
+					restrict: 'EA',
+					template: '<input type="text" ng-model="name"/><br/>',
+					scope: {
+						
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div ng-controller="newCtrl">
+				
+			<my-dir>
+				
+			</my-dir>
+				Hello, {{name}}
+		</div>
+	</body>
+</html>
